@@ -13,7 +13,7 @@ class Database:
         self.list[object.get_id()] = None
 
     def get_object(self, id):
-        return self.list[id]
+        return self.list.get(id)
 
     def update_object(self, id, object):
         self.list[id] = object
