@@ -1,14 +1,17 @@
-import flask
-
+from flask import *
+import json
 
 class Pizza:
 
-    def _init_(self, pizza_id, name, vegetarian, price,toppings):
+    def __init__(self, pizza_id, name, vegetarian, price,toppings):
         self.pizza_id = pizza_id
         self.name = name
         self.vegetarian = vegetarian
         self.price = price
         self.toppings = toppings
+
+    def get_id(self):
+        return self.pizza_id
 
     def to_json(self):
         d = {
@@ -16,11 +19,7 @@ class Pizza:
             "name": self.name,
             "vegetarian": self.vegetarian,
             "price": self.price,
-            "toppings": "none"
+            "toppings": self.toppings
         }
-        js = flask.jsonify(d)
-        js.status_code = 200
+        js = json.dumps(self.__dict__)
         return js
-
-    def get_id(self):
-        return self.pizza_id
