@@ -10,7 +10,7 @@ pizzas = Database("Pizzas")
 
 @app.route('/pizza')
 def get_pizzas(pizza_id, name, vegetarian, price, toppings):  # put application's code here
-    return orders
+    return json.dumps(pizza.to_json() for pizza in pi
 
 
 @app.route('/pizza/{pizza_id}')

@@ -1,7 +1,7 @@
 
 class Database:
 
-    def _init_(self, name):
+    def _init_(self, name: str):
         self.list = dict()
         self.name = name
 
@@ -17,3 +17,6 @@ class Database:
 
     def update_object(self, id, object):
         self.list[id] = object
+
+    def get_objects(self):
+        return [ item[1] for item in self.list.items() ]
