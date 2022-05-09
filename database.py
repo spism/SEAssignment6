@@ -1,7 +1,7 @@
 
 class Database:
 
-    def _init_(self, name: str):
+    def __init__(self, name: str):
         self.list = dict()
         self.name = name
 

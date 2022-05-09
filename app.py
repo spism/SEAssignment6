@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from order import Order
+from pizza import Pizza
 from database import Database
 from datetime import datetime
 import json
@@ -10,9 +11,13 @@ orders = Database("Orders")
 pizzas = Database("Pizzas")
 order_id = 0
 
+p1 = Pizza(1,"marga",True, 12.99, ["cheese","tomato sauce"])
+p2 = Pizza(2,"hawaii",False,15.99,["cheese","pineapple","ham"])
+pizzas.add_object(p1)
+pizzas.add_object(p2)
 
 @app.route('/pizza')
-def get_pizzas(pizza_id, name, vegetarian, price, toppings):  # put application's code here
+def get_pizzas():  # put application's code here
     return json.dumps([pizza.__dict__ for pizza in pizzas.get_objects()])
 
 
