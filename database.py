@@ -6,7 +6,7 @@ class Database:
         self.name = name
 
     def add_object(self, object):
-        if object.get_id not in self.list.keys():
+        if object.get_id() not in self.list.keys():
             self.list[object.get_id()] = object
 
     def remove_object(self, object):

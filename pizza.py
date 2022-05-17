@@ -13,7 +13,7 @@ class Pizza:
     def get_id(self):
         return self.pizza_id
 
-    def to_json(self):
+    def to_dict(self):
         d = {
             "pizza_id": self.pizza_id,
             "name": self.name,
@@ -21,5 +21,4 @@ class Pizza:
             "price": self.price,
             "toppings": self.toppings
         }
-        js = json.dumps(self.__dict__)
-        return js
+        return d

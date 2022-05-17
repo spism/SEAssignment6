@@ -21,8 +21,8 @@ class Order:
     def get_id(self):
         return self.order_id
 
-    def to_json(self):
-        pizza_json = [pizza.__dict__ for pizza in self.pizzas]
+    def to_dict(self):
+        pizza_json = [pizza.to_dict() for pizza in self.pizzas]
         d = {
             "order_id": self.order_id,
             "customer_id": self.customer_id,
@@ -34,4 +34,4 @@ class Order:
             "delivery_address": self.delivery_address,
             "pizzas": pizza_json
         }
-        return json.dumps(d)
+        return d
